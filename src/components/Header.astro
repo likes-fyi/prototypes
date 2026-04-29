@@ -1,6 +1,15 @@
+---
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts"
+
+const {
+  title = SITE_TITLE,
+  subtitle = SITE_DESCRIPTION
+} = Astro.props
+---
+
 <header class="mb-24 leading-snug [&_p]:my-0">
   <p>
-    <a class="font-medium no-underline" href="/">Miniblog</a>
+    <a class="font-medium no-underline" href="/">{title}</a>
   </p>
-  <p class="text-muted-foreground">A minimal Astro blog template.</p>
+  <p class="text-muted-foreground">{subtitle}</p>
 </header>
