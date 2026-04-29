@@ -11,9 +11,9 @@ interface Item {
 
 const projects: Item[] = [
   {
-    name: "Miniblog",
-    description: "A minimal Astro blog template.",
-    url: "/",
+    name: "[2026-04-29] initial end-to-end spike",
+    description: "exploring how to save, annotate, and share bookmarks",
+    url: "/20260429/",
     isExternal: false,
   },
 ];
@@ -21,17 +21,6 @@ const projects: Item[] = [
 
 <Layout>
   <main class="[&_p]:text-muted-foreground">
-    <h2>Today</h2>
-    <p>
-      Miniblog is an opinionated and minimal blog template built using Astro,
-      Markdown, and Tailwind CSS.
-    </p>
-    <p>
-      To learn how to use this template, check out the <Link
-        url="https://github.com/nicholasdly/miniblog">GitHub repository</Link
-      >.
-    </p>
-    <h2>Projects</h2>
     <div class="flex flex-col gap-2">
       {
         projects.map((project) => (
@@ -47,25 +36,19 @@ const projects: Item[] = [
         ))
       }
     </div>
-    <h2>Writing</h2>
-    <div class="flex flex-col gap-2">
-      {
-        posts.map((post) => (
-          <a
-            class="hover:bg-muted -mx-3 flex flex-col rounded-md px-3 py-2 no-underline"
-            href={`/blog/${post.id}`}
-          >
-            <span>{post.data.title}</span>
-            <span class="text-muted-foreground">{post.data.description}</span>
-          </a>
-        ))
-      }
-    </div>
-    <h2>More</h2>
+    <h2>Learn More</h2>
     <p>
-      Miniblog is open source under the MIT license, and is heavily inspired by
-      Emil Kowalski's <Link url="https://emilkowal.ski/">personal website</Link> which
-      is built in Next.js.
+      <Link url="https://likes.fyi">likes.fyi</Link> is an open source toolkit
+      for sharing the links you like with the people you love. You've found our
+      museum of curiosities, a graveyard of prototypes and hacks built while
+      figuring out what the heck likes.fyi even was.
+    </p>
+
+    <p>
+      To learn more head to <Link url="https://likes.fyi">likes.fyi</Link> or
+      check out the code on <Link url="https://github.com/likes-fyi">GitHub</Link>
+      or <Link url="https://tangled.org/likes.fyi">tangled</Link>. You can also
+      follow us on bsky at <Link url="https://bsky.app/profile/likes.fyi">@likes.fyi</Link>.
     </p>
   </main>
 </Layout>
