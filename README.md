@@ -14,3 +14,6 @@ License
 
 Copyright (c) 2026 Ben Bleything. Released under the terms of the MIT License.
 See [LICENSE](LICENSE) for details.
+
+Incorporates the [miniblog](https://github.com/nicholasdly/miniblog) Astro
+theme, also released under the MIT License. See their repo for details.
