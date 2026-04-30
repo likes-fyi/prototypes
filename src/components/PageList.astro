@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+
+const pages = (await getCollection("pages")).sort(
+  // sort newest to the top
+  (a, b) => new Date(b.id).valueOf() - new Date(a.id).valueOf(),
+);
+---
+
+<div class="mt-12 flex flex-col gap-2">
+    {
+    pages.length > 0 ?
+    pages.map((page) => (
+        <a
+        class="hover:bg-muted -mx-3 flex flex-col rounded-md px-3 py-2 no-underline"
+        href={page.id + "/"}
+        >
+        <span>
+            [{page.id}]
+            {page.data.title}
+        </span>
+        <span class="text-muted-foreground">{page.data.subtitle}</span>
+        </a>
+    ))
+    :
+    "none :("
+    }
+</div>
