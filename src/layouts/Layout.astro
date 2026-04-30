@@ -5,6 +5,7 @@ import FallbackImage from "../assets/blog-placeholder-1.jpg";
 interface Props {
   title: string;
   subtitle: string;
+  date: string;
   frontmatter: {
     title: string;
     subtitle: string;
@@ -12,9 +13,10 @@ interface Props {
 }
 
 const {
+  date,
   frontmatter,
-  title = frontmatter?.title,
   subtitle = frontmatter?.subtitle,
+  title = frontmatter?.title,
 } = Astro.props;
 ---
 
@@ -23,11 +25,17 @@ const {
   <Head title={title} description={subtitle} image={FallbackImage} />
   <body>
     <div class="mx-auto w-full max-w-2xl px-6 py-16">
-      <header class="mb-24 leading-snug [&_p]:my-0">
-        <p>
-          <a class="font-medium no-underline" href="/">{title}</a>
-        </p>
-        <p class="text-muted-foreground">{subtitle}</p>
+      <header class="mb-16 leading-snug [&_p]:my-0 flex flex-col">
+        <a class="text-xl sm:text-4xl no-underline" href="/">{title}</a>
+        <div class="mt-4 flex flex-row">
+          <div class="flex-1 sm:text-xl">
+            {title}
+          </div>
+          <span class="pl-2 flex-none text-sm text-muted-foreground">
+            {date}
+          </span>
+        </div>
+        <div class="text-md text-muted-foreground">{subtitle}</div>
       </header>
 
       <main>
