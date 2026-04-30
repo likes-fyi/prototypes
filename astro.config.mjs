@@ -4,11 +4,12 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig, fontProviders } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import { SITE_URL } from "./src/consts";
+
+import { SiteConfig } from "./src/site.config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: SITE_URL,
+  site: SiteConfig.url,
   integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
