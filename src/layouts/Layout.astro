@@ -2,7 +2,6 @@
 import Head from "../components/Head.astro";
 import FallbackImage from "../assets/blog-placeholder-1.jpg";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-import Header from "../components/Header.astro";
 
 interface Props {
   title?: string;
@@ -22,8 +21,16 @@ const {
   <Head title={title} description={description} image={image} />
   <body>
     <div class="mx-auto w-full max-w-2xl px-6 py-16">
-      <Header />
-      <slot />
+      <header class="mb-24 leading-snug [&_p]:my-0">
+        <p>
+          <a class="font-medium no-underline" href="/">{title}</a>
+        </p>
+        <p class="text-muted-foreground">{subtitle}</p>
+      </header>
+
+      <main>
+        <slot />
+      </main>
     </div>
   </body>
 </html>
