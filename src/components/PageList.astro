@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import ListTile from "./ListTile.astro"
 
 const pages = (await getCollection("pages")).sort(
   // sort newest to the top
@@ -11,16 +12,7 @@ const pages = (await getCollection("pages")).sort(
     {
     pages.length > 0 ?
     pages.map((page) => (
-        <a
-        class="hover:bg-muted -mx-3 flex flex-col rounded-md px-3 py-2 no-underline"
-        href={page.id + "/"}
-        >
-        <span>
-            [{page.id}]
-            {page.data.title}
-        </span>
-        <span class="text-muted-foreground">{page.data.subtitle}</span>
-        </a>
+        <ListTile page={page} />
     ))
     :
     "none yet :("

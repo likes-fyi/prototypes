@@ -1,0 +1,15 @@
+---
+const { page } = Astro.props
+---
+<a
+    class="hover:bg-muted -mx-3 flex flex-col rounded-md px-3 py-2 no-underline"
+    href={page.id + "/"}
+>
+
+    <div class="flex flex-row">
+        <span class="flex-1">{page.data.title}</span>
+        <span class="text-sm text-muted-foreground">{page.id}</span>
+    </div>
+
+    <span class="text-muted-foreground">{page.data.subtitle}</span>
+</a>
